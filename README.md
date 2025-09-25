@@ -1,12 +1,27 @@
-# Aylur's Gtk Shell
+# AGS v1.8.2 forever
 
-This is a library built for [GJS](https://gitlab.gnome.org/GNOME/gjs) to allow defining GTK widgets in a declarative way. It also provides services and other utilities to interact with the system so that these widgets can have functionality.
-GJS is a JavaScript runtime built on Firefox's SpiderMonkey JavaScript engine and the GNOME platform libraries, the same runtime [GNOME Shell](https://gitlab.gnome.org/GNOME/gnome-shell) runs on. 
+<img width="1919" height="1081" alt="image" src="https://github.com/user-attachments/assets/2a00567e-401c-4ad5-a455-df80bab5f7a0" />
 
-It was heavily inspired by [EWW](https://github.com/elkowar/eww).
+## Why does this fork exist?
 
-Currently, only Wayland is supported, but it also works on X11, [see #19](https://github.com/Aylur/ags/issues/19).
+Aylur has forsaken us with his newer AGS versions and not everyone is happy with this. Not even the legendary [end-4](https://github.com/end-4) who has switched to quickshell ever since.
 
-## Get started
+But I'm too stubborn to let AGS v1 go. That's why this fork exists: It promises survival. AGS v1 will keep breathing as long as I feel like fighting the build system.
 
-To get started read the [wiki](https://aylur.github.io/ags-docs).
+Since the beginning of 2025 I've been occasionally making small changes to the source code of AGS so as to ensure it still compiles and executes without errors. However, every now and then, updates of GTK (or Hyprland) (or anything in-between) might completely break the integrity of this fork and I will have to patch it back again. So... good luck to me, I guess?
+
+## How to install
+
+```sh
+sudo pacman -S typescript npm meson gjs gtk3 gtk-layer-shell gnome-bluetooth-3.0 upower networkmanager gobject-introspection libdbusmenu-gtk3 libsoup3
+git clone https://github.com/iluvgirlswithglasses/ags-v1
+cd ags-v1
+npm install
+meson setup build --prefix=/usr
+meson compile -C build
+meson install -C build
+```
+
+**Notes:**
+- Sometimes `npm install` behaves, sometimes it doesn't. I'm really thinking about posting the whole `node_modules` somewhere just to skip this command.
+- The `--prefix=/usr` on the `meson setup` is not optional. Skip it and AGS won't find its libraries at all.
