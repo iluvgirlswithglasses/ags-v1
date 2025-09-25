@@ -28,10 +28,6 @@ imports.package.init({
     libdir: '@LIBDIR@',
 });
 
-const { Repository } = imports.gi.GIRepository;
-Repository.prepend_search_path('@LIBDIR@');
-Repository.prepend_library_path('@LIBDIR@');
-
 const module = await import('resource://@RESOURCE_PATH@/main.js');
 const exitCode = await module.main([programInvocationName, ...programArgs]);
 exit(exitCode);

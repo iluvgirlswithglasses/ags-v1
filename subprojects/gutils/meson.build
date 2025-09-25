@@ -1,4 +1,4 @@
-project('pam', 'c')
+project('gutils', 'c')
 
 pkglibdir = get_option('pkglibdir')
 pkgdatadir = get_option('pkgdatadir')
@@ -30,7 +30,7 @@ gnome.generate_gir(
   identifier_prefix: 'GUtils',
   includes: ['GObject-2.0', 'Gio-2.0'],
   install_dir_gir: pkgdatadir,
-  install_dir_typelib: pkglibdir,
+  install_dir_typelib: join_paths(get_option('libdir'), 'girepository-1.0'),
   install: true
 )
 
