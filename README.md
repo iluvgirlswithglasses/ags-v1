@@ -23,5 +23,5 @@ meson install -C build
 ```
 
 **Notes:**
-- Sometimes `npm install` behaves, sometimes it doesn't. I'm really thinking about posting the whole `node_modules` somewhere just to skip this command.
+- Sometimes `npm install` behaves, sometimes it doesn't. You may download the `node_modules` in [release tag](https://github.com/iluvgirlswithglasses/ags-v1/releases/tag/node_modules) instead of running this command.
 - The `--prefix=/usr` on the `meson setup` is not optional. Skip it and AGS won't find its libraries at all.
