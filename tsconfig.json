@@ -10,6 +10,7 @@
         "outDir": "_build/tsc-out",
         "strict": true,
         "moduleResolution": "node",
+        "ignoreDeprecations": "6.0",
         "baseUrl": ".",
         "typeRoots": [
             "./node_modules/@girs"
