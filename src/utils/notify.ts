@@ -1,6 +1,6 @@
 import App from '../app.js';
 import GLib from 'gi://GLib?version=2.0';
-import { type Urgency, type Hints } from '../service/notifications.js';
+import { type Urgency, type Hints, Notification } from '../service/notifications.js';
 
 type ClosedReason = ReturnType<typeof _CLOSED_REASON>
 
@@ -95,7 +95,7 @@ export async function notify(
         };
 
     if (daemon.running) {
-        const { default: Daemon } = await import('../service/notifications.js');
+        const { notifications: Daemon } = await import('../service/notifications.js');
 
         const actions = Object.entries(args.actions || {}).map(([label, callback], i) => ({
             id: `${i}`, label, callback,
@@ -131,7 +131,7 @@ export async function notify(
             args.timeout || 0,
         );
 
-        Daemon.getNotification(id)?.connect('invoked', (_, actionId: string) => {
+        Daemon.getNotification(id)?.connect('invoked', (_: Notification, actionId: string) => {
             const action = actions.find(({ id }) => id === actionId);
             if (action)
                 action.callback();

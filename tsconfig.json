@@ -9,8 +9,8 @@
         "checkJs": false,
         "outDir": "_build/tsc-out",
         "strict": true,
-        "moduleResolution": "node",
-        "ignoreDeprecations": "6.0",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
         "baseUrl": ".",
         "typeRoots": [
             "./node_modules/@girs"
